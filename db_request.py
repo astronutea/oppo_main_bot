@@ -2,8 +2,10 @@ import requests
 
 
 def registration_ref(username, firstName, lastName, id, code):
-    url = f"https://waterwa1ker-nuts-95d6.twc1.net/api/v1/auth/init?ref={code}"
-
+    if code == "None":
+        url = f"https://waterwa1ker-nuts-95d6.twc1.net/api/v1/auth/init"
+    else:
+        url = f"https://waterwa1ker-nuts-95d6.twc1.net/api/v1/auth/init?ref={code}"
     params = {
         "username": username,
         "firstName": firstName,
