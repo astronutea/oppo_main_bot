@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher, types, exceptions
 from aiogram import html
 from aiogram.enums import ParseMode
 from aiogram.filters.command import Command
@@ -28,13 +28,16 @@ dp = Dispatcher()
 async def start_command(message: Message, command: CommandObject):
     # Получаем параметры из команды /start
     command_args: str = command.args
-    await message.answer("Привет!\n\n"
-                         "Добро пожаловать в игру <em><b>КрепкийOPPOрешек!</b></em>🌰\n\n"
-                         "Здесь вы сможете весело провести время, познакомиться с новинками смартфонов OPPO и заработать реальные деньги.\n\n"
-                         "Нажимайте на экран, чтобы <em>колоть орехи</em>, и выполняйте задания, чтобы увеличить свой доход!\n\n"
-                         "Не забывайте о <b>друзьях</b> — приводите их в игру и зарабатывайте еще больше вместе!",
-                         reply_markup=main_kb, parse_mode=ParseMode.HTML)
-    registration_ref(message.from_user.username, message.from_user.first_name, message.from_user.last_name, int(message.from_user.id), str(command_args))
+    try:
+        await message.answer("Привет!\n\n"
+                             "Добро пожаловать в игру <em><b>КрепкийOPPOрешек!</b></em>🌰\n\n"
+                             "Здесь вы сможете весело провести время, познакомиться с новинками смартфонов OPPO и заработать реальные деньги.\n\n"
+                             "Нажимайте на экран, чтобы <em>колоть орехи</em>, и выполняйте задания, чтобы увеличить свой доход!\n\n"
+                             "Не забывайте о <b>друзьях</b> — приводите их в игру и зарабатывайте еще больше вместе!",
+                             reply_markup=main_kb, parse_mode=ParseMode.HTML)
+        registration_ref(message.from_user.username, message.from_user.first_name, message.from_user.last_name, int(message.from_user.id), str(command_args))
+    except exceptions.TelegramForbiddenError:
+        print(f"Пользователь {message.from_user.id} заблокировал бота")
 
 
 @dp.callback_query(F.data == "rules")

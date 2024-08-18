@@ -20,6 +20,7 @@ def registration_ref(username, firstName, lastName, id, code):
     response = requests.post(url, json=params, headers=headers)
     # Проверка
     if response.status_code == 200:
+        print("200!")
         try:
             # Обработка данных ответа
             data = response.json()
