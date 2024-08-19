@@ -1,11 +1,12 @@
 import requests
+from config import HASH
 
 
 def registration_ref(username, firstName, lastName, id, code):
     if code == "None":
-        url = f"https://waterwa1ker-nuts-95d6.twc1.net/api/v1/auth/init"
+        url = f"https://waterwa1ker-nuts-7ebc.twc1.net/api/v1/auth/{HASH}/init"
     else:
-        url = f"https://waterwa1ker-nuts-95d6.twc1.net/api/v1/auth/init?ref={code}"
+        url = f"https://waterwa1ker-nuts-7ebc.twc1.net/api/v1/auth/{HASH}/init?ref={code}"
     params = {
         "username": username,
         "firstName": firstName,

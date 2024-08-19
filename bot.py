@@ -1,19 +1,14 @@
 import asyncio
 import logging
+
 from aiogram import Bot, Dispatcher, types, exceptions
-from aiogram import html
-from aiogram.enums import ParseMode
-from aiogram.filters.command import Command
-from aiogram.filters import Command, CommandObject
-
 from aiogram import F
+from aiogram.enums import ParseMode
+from aiogram.filters import Command, CommandObject
 from aiogram.types import Message
-from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-from config import BOT_TOKEN, PASSWORD, GAME_URL
-
+from config import BOT_TOKEN
 from db_request import registration_ref
-
 from keyboards import main_kb
 
 # Включаем логирование, чтобы не пропустить важные сообщения

@@ -1,6 +1,5 @@
 from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from config import GAME_URL, SUPPORT_BOT_URL
 
 builder_main_kb = InlineKeyboardBuilder()
