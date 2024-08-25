@@ -37,13 +37,13 @@ async def start_command(message: Message, command: CommandObject):
 
 @dp.callback_query(F.data == "rules")
 async def show_rules(callback: types.CallbackQuery):
-    await callback.message.answer(f"<em><ins>Правила игры:</ins></em>\n\n"
-                                  f"- Нажимайте на экран, чтобы колоть орехи.\n\n"
-                                  f"- <b>Выполняйте задания</b>, чтобы заработать еще больше!\n\n"
-                                  f"- Заходите в игру <b>регулярно</b>, чтобы собрать больше ядер орехов для обмена на реальные деньги.\n\n"
-                                  f"- <b>Приглашайте друзей</b>, чтобы зарабатывать вместе еще больше.\n\n"
-                                  f"- <b>Следите за новостями</b>, чтобы не пропустить все самое интересное!",
-                                  parse_mode=ParseMode.HTML, reply_markup=main_kb)
+    await callback.message.answer(f'<em><ins><a href="https://telegra.ph/PRAVILA-PROVEDENIYA-AKCII-KrepkijOPPOreshek-DLYA-FIZICHESKIH-LIC-dalee--Pravila-08-13">Правила игры:</a></ins></em>\n\n'
+                                  f'- Нажимайте на экран, чтобы колоть орехи.\n\n'
+                                  f'- <b>Выполняйте задания</b>, чтобы заработать еще больше!\n\n'
+                                  f'- Заходите в игру <b>регулярно</b>, чтобы собрать больше ядер орехов для обмена на реальные деньги.\n\n'
+                                  f'- <b>Приглашайте друзей</b>, чтобы зарабатывать вместе еще больше.\n\n'
+                                  f'- <b>Следите за новостями</b>, чтобы не пропустить все самое интересное!',
+                                  parse_mode=ParseMode.HTML, reply_markup=main_kb, disable_web_page_preview=True)
 
 
 @dp.callback_query(F.data == "info")
